@@ -256,7 +256,7 @@ public class RobotContainer {
     public static Color color = Color.kBlue;
     public static boolean robotCentric = false;
 
-    private final SendableChooser<Command> autoChooser;
+    //private final SendableChooser<Command> autoChooser;
     private final SendableChooser<Command> teamChooser;
 
     // private static final Orchestra orchestra = new Orchestra("mario.chrp");
@@ -351,9 +351,8 @@ public class RobotContainer {
         debugSpeeds();
 
         configureButtonBindings();
-
         // Build an auto chooser. This will use Commands.none() as the default option.
-        autoChooser = AutoBuilder.buildAutoChooser();
+        // autoChooser = AutoBuilder.buildAutoChooser();
         teamChooser = new SendableChooser<>();
         teamChooser.addOption("Red", new InstantCommand(() -> {
             color = Color.kRed;
@@ -364,7 +363,7 @@ public class RobotContainer {
             l_LEDSubsystem.setColor(color);
         }));
 
-        SmartDashboard.putData("Auto Chooser", autoChooser);
+        //SmartDashboard.putData("Auto Chooser", autoChooser);
         SmartDashboard.putData("Team Chooser", teamChooser);
     }
 
@@ -480,10 +479,11 @@ public class RobotContainer {
      * @return the command to run in autonomous
      */
     public Command getAutonomousCommand() {
-        return new SequentialCommandGroup((new InstantCommand(() -> {
-            s_Swerve.zeroHeading();
-            s_Swerve.gyro.reset();
-        })), autoChooser.getSelected());
+        // return new SequentialCommandGroup((new InstantCommand(() -> {
+        //     s_Swerve.zeroHeading();
+        //     s_Swerve.gyro.reset();
+        // })), autoChooser.getSelected());
+        return Commands.none();
         // An ExampleCommand will run in autonomous
         // return new exampleAuto(s_Swerve);
 
