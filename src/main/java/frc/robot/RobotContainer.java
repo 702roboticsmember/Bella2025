@@ -323,8 +323,7 @@ public class RobotContainer {
                 () -> codriver.getRawAxis(upAxis)));
         i_IntakeSubsystem.setDefaultCommand(
                 i_IntakeSubsystem
-                        .moveCmd(() -> l_LimitSwitch.isRingIn() ? 0 - codriver.getRawAxis(RightTrigger) * 0.45
-                                : codriver.getRawAxis(LeftTrigger) * 0.55 - codriver.getRawAxis(RightTrigger) * 0.55));
+                        .moveCmd(() -> codriver.getRawAxis(LeftTrigger) * 0.55 - codriver.getRawAxis(RightTrigger) * 0.75));
 
         
         l_LEDSubsystem.setDefaultCommand(new InstantCommand(() -> {
